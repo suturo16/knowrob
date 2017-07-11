@@ -290,6 +290,7 @@ holds(S, P, O, I) :-
 holds(S, P, O, I) :-
   once(( atom(S) ; var(S) )),
   temporal_part_has(S, P, O, TimeInterval),
+  \+ rdf_has(S,P,O),
   time_term(TimeInterval, Interval),
   (  var(I)
   -> I = Interval
